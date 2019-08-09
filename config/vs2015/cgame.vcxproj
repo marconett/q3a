@@ -53,6 +53,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>cgame</TargetName>
+    <CustomBuildAfterTargets>BuildCompile</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <TargetName>cgame</TargetName>
@@ -91,6 +92,12 @@
       <OutputFile>
       </OutputFile>
     </Bscmake>
+    <CustomBuildStep>
+      <Command>cd ..\..\ &amp;&amp; call make_qvm_cgame.bat</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>nope</Outputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>

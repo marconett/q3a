@@ -55,6 +55,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>ui</TargetName>
+    <CustomBuildAfterTargets>BuildCompile</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <TargetName>ui</TargetName>
@@ -131,6 +132,12 @@
       <OutputFile>
       </OutputFile>
     </Bscmake>
+    <CustomBuildStep>
+      <Command>cd ..\..\ &amp;&amp; call make_qvm_ui.bat</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>nope</Outputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\game\bg_misc.c">

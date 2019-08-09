@@ -5,10 +5,8 @@ set INCLUDE=
 mkdir ..\..\intermediate\vm\game
 cd ..\..\intermediate\vm\game
 
-set PATH=..\..\..\tools\bin;%PATH%
-
 set src=..\..\..\source
-set cc=lcc -DQ3_VM -S -Wf-target=bytecode -Wf-g -I%src%\cgame -I%src%\game -I%src%\ui %1
+set cc=lcc.exe -DQ3_VM -S -Wf-target=bytecode -Wf-g -I%src%\cgame -I%src%\game -I%src%\ui %1
 
 %cc%  %src%/game/g_main.c
 @if errorlevel 1 goto quit
@@ -83,6 +81,6 @@ set cc=lcc -DQ3_VM -S -Wf-target=bytecode -Wf-g -I%src%\cgame -I%src%\game -I%sr
 %cc%  %src%/game/ai_vcmd.c
 @if errorlevel 1 goto quit
 
-q3asm -f %src%/game/game
+q3asm.exe -f %src%/game/game
 :quit
 cd %src%/game

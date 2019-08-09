@@ -5,10 +5,8 @@ set INCLUDE=
 mkdir ..\..\intermediate\vm\cgame
 cd ..\..\intermediate\vm\cgame
 
-set PATH=..\..\..\tools\bin;%PATH%
-
 set src=..\..\..\source
-set cc=lcc -DQ3_VM -S -Wf-target=bytecode -Wf-g -I%src%\cgame -I%src%\game -I%src%\ui %1
+set cc=lcc.exe -DQ3_VM -S -Wf-target=bytecode -Wf-g -I%src%\cgame -I%src%\game -I%src%\ui %1
 
 %cc% %src%/game/bg_misc.c
 @if errorlevel 1 goto quit
@@ -59,6 +57,6 @@ set cc=lcc -DQ3_VM -S -Wf-target=bytecode -Wf-g -I%src%\cgame -I%src%\game -I%sr
 %cc% %src%/cgame/cg_weapons.c
 @if errorlevel 1 goto quit
 
-q3asm -f %src%/cgame/cgame
+q3asm.exe -f %src%/cgame/cgame
 :quit
 cd %src%/cgame
